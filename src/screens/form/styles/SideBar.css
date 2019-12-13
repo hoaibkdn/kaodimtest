@@ -1,5 +1,5 @@
 .left-nav li:first-child {
-  color: #dda600;
+  color: #ed193a;
   border-bottom: solid 2px #e1e1e1;
   list-style: none;
   font-size: 1.250em;
@@ -20,5 +20,5 @@
 }
 
 .highlight {
-  color: #dda600 !important;
+  color: #ed193a !important;
 }
