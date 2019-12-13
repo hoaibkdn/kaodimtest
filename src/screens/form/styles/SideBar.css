@@ -1,0 +1,24 @@
+.left-nav li:first-child {
+  color: #dda600;
+  border-bottom: solid 2px #e1e1e1;
+  list-style: none;
+  font-size: 1.250em;
+  padding-bottom: 7px;
+  margin-bottom: 10px;
+  min-width: 260px;
+}
+.left-nav li {
+  font-size: 1.000em;
+  list-style: none;
+  padding: 10px 0;
+  cursor: pointer;
+  border-bottom: 1px solid #ccc;
+}
+
+.left-nav li a {
+  padding: 8px 0
+}
+
+.highlight {
+  color: #dda600 !important;
+}

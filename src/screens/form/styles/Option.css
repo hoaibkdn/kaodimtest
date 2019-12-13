@@ -1,0 +1,72 @@
+.custom-checkbox input[type="checkbox"],
+.custom-checkbox input[type="radio"] {
+  display: none;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  margin: 4px 0 0;
+  line-height: normal;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.custom-checkbox input[type="checkbox"]:checked+label {
+  background-image: url("https://www.kaodim.com/assets/icons/slice-checkbox-on-c66e718284c6e15d1478b7dad5d730df8969ad736cf07c56255362657f3d4e91.svg");
+  background-repeat: no-repeat;
+}
+
+.custom-checkbox input[type="checkbox"]+label {
+  background-image: url("https://www.kaodim.com/assets/icons/slice-checkbox-off-d146a659454a9cbc56104d27ae9012cb22626092efe57bcdae8c26892dd72331.svg");
+  height: 20px;
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-position: 0;
+}
+
+.custom-checkbox input[type="radio"]:checked+label {
+  background-image: url("https://www.kaodim.com/assets/icons/slice-radio-on-474a7c0e175d1007912192409285ea3c2bdf0b10134539b735cce8f4a023aca8.svg");
+  background-repeat: no-repeat;
+}
+
+.custom-checkbox input[type="radio"]+label {
+  background-image: url("https://www.kaodim.com/assets/icons/slice-radio-off-b192cd3061c1f23eacdde9918d952c4a5cec159595923b997594439b41ec3e95.svg");
+  height: 20px;
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-position: 0;
+}
+
+.custom-checkbox label {
+  display: inline-block;
+  max-width: 100%;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.option-label {
+  margin-left: 40px;
+}
+
+.box-border {
+  border: 1px solid #e6e7e8;
+  padding: 10px 15px;
+  border-radius: 5px;
+  min-width: 300px;
+}
+
+.box-border-active {
+  border: 1px solid #ed193a;
+  background: #ed193a;
+  color: #fff;
+}
+
+.option-input {
+  background: transparent;
+  padding: 5px;
+  border: none;
+  border-bottom: 1px solid #e6e7e8;
+  outline: none;
+  width: 100%;
+  color: white;
+}

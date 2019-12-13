@@ -21,6 +21,60 @@
       "prompt": "What is your third answer?",
       "is_required": true,
       "min_char_length": 1
+    },
+    {
+      "id": 2501,
+      "question_type": "CheckboxQuestion",
+      "prompt": "What is your first answer?",
+      "is_required": true,
+      "options": [
+        {
+          "id": 1,
+          "value": "Option 1"
+        },
+        {
+          "id": 2,
+          "value": "Option 2"
+        },
+        {
+          "id": 3,
+          "value": "Option 3"
+        },
+        {
+          "id": 4,
+          "value": "Other"
+        }
+      ]
+    },
+    {
+      "id": 2502,
+      "question_type": "RadioQuestion",
+      "prompt": "What is your first answer?",
+      "is_required": true,
+      "options": [
+        {
+          "id": 1,
+          "value": "Option 1"
+        },
+        {
+          "id": 2,
+          "value": "Option 2"
+        },
+        {
+          "id": 3,
+          "value": "Option 3"
+        },
+        {
+          "id": 4,
+          "value": "Other"
+        }
+      ]
+    },
+    {
+      "id": 2503,
+      "question_type": "FileUploadQuestion",
+      "prompt": "What is your first answer?",
+      "is_required": true
     }
   ]
 }

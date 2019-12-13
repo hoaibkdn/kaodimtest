@@ -1,22 +1,15 @@
 // libs
 import { createStore, applyMiddleware } from "redux";
-import createSagaMiddleware from "redux-saga";
 import { persistStore } from "redux-persist";
 import { createBrowserHistory } from "history";
 import { routerMiddleware } from "connected-react-router";
 import rootReducer from "./reducers";
 
-// sagas
-
-// create saga middleware
-const sagaMiddleware = createSagaMiddleware();
+// create middleware
 const history = createBrowserHistory();
 const middleware = routerMiddleware(history);
 
-// add to middleware list
-let middlewares = [sagaMiddleware, middleware];
-
-const store = createStore(rootReducer(history), applyMiddleware(...middlewares));
+const store = createStore(rootReducer(history), applyMiddleware(middleware));
 let persistor = persistStore(store);
 export { store, persistor, history };
 

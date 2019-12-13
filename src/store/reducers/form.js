@@ -1,15 +1,24 @@
-import { GET_QUESTIONS } from './../actions/form'
+import { UPDATE_ANSWER } from './../actions/form'
 import data from './../../mockdata/questions.json'
+import { convertQuestions } from './../../helpers/convertRootData'
 
 const INITIAL_STATE = {
   type: '',
-  assignment: data
+  ...convertQuestions(data)
 }
 const formReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case GET_QUESTIONS:
+    case UPDATE_ANSWER:
+      const { id, value, questionType } = action
+      const answer = value[questionType][id]
+      let questionsContent = state.questionsContent
+      questionsContent[questionType][id] = {
+        ...questionsContent[questionType][id],
+        answer
+      }
       return Object.assign({}, state, {
-        type: GET_QUESTIONS
+        type: UPDATE_ANSWER,
+        questionsContent
       })
 
     default:
