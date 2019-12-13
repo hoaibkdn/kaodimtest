@@ -12,9 +12,10 @@ const Option = memo(props => {
             type={type}
             id={optionId}
             checked={!!isChecked}
+            onChange={() => { }}
           />}
 
-        {<label className={!value ? 'm-t-10' : ''} htmlFor={optionId} onClick={() => onChange(optionId, optionId.includes('other') ? null : value)}>
+        {<label className={!value ? 'm-t-10' : ''} htmlFor={optionId} onClick={() => onChange(optionId)}>
           {
             (value || !isBox) &&
             <div className={`b-400 ${isBox ? 'box-border cursor-pointer' : 'option-label'} ${isChecked && isBox ? 'box-border-active' : ''}`}>
