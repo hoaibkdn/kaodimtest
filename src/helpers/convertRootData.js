@@ -33,7 +33,6 @@ export const convertQuestions = (data = { title: '', questions: [] }) => {
       }
     }
   });
-  console.log('questionIds ', questionIds)
   return {
     title: data.title,
     questionIds,

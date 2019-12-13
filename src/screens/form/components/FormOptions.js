@@ -72,7 +72,6 @@ class FormOptions extends Component {
   render() {
     const { stepOption, answer } = this.state
     const { formQuestions: { questionsContent }, typeOption } = this.props
-    console.log('answer ', answer)
     return (
       <>
         {
