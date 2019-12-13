@@ -4,7 +4,6 @@ import './../styles/Option.css'
 
 const Option = memo(props => {
   const { type, value, isBox, isChecked, onChange, optionId, text = "" } = props
-  console.log('isChecked ', isChecked)
   return (
     <label className={`cursor-pointer`}>
       <div className="custom-checkbox">

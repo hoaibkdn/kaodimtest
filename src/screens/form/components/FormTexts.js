@@ -52,7 +52,6 @@ class FormTexts extends Component {
   render() {
     const { questionIds, questionsContent } = this.props.formQuestions
     const { crrIndexQuestion, answer } = this.state
-    console.log('props ==> ', this.props)
     return (
       <>
         <FormHeader />

@@ -11,7 +11,6 @@ const formReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case UPDATE_ANSWER:
       const { id, value, questionType } = action
-      console.log('action ', action)
       const answer = value[id]
       let questionsContent = state.questionsContent
       switch (questionType) {

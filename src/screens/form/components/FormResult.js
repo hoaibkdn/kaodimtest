@@ -18,7 +18,6 @@ const Answer = ({ question = "", answer, type = "" }) => (
   </div>
 )
 const FormResult = memo(props => {
-  console.log('props ', props)
   const { questionType, formQuestions: { questionsContent, questionIds } } = props
   const crrQuestions = questionsContent[questionType]
   const renderAnswers = () => {
