@@ -29,7 +29,7 @@ const SideBar = memo((props) => {
         {
           formTypes.map(item => (
             <li key={item.label} onClick={item.onClick}>
-              <a className={`${item.isActive ? 'highlight' : ''}`}>{item.label}</a>
+              <a href="#" className={`${item.isActive ? 'highlight' : ''}`}>{item.label}</a>
             </li>
           ))
         }
