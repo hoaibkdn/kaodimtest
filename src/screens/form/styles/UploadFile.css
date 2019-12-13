@@ -1,0 +1,31 @@
+.upload-file {
+  background-color: #ffffff;
+  padding: 1em;
+  color: #5a5a5a;
+  cursor: pointer;
+  border: 1px dashed #cbced0;
+  max-width: 400px;
+  width: 100%;
+  border-radius: 4px;
+  text-align: center;
+  margin-top: 30px
+}
+
+.upload-file .doc-icon {
+  background: #e6e7e8 url("https://www.kaodim.com/assets/icons/ic-mini-document-fdf7e8d9538b8bbf1119a16f5e2025559540316583206cc0adb3c0da722adcaf.svg") no-repeat center;
+    display: block;
+    padding: 12px;
+    width: 30px;
+    height: 30px;
+    border-radius: 100px;
+    margin-right: 12px;
+}
+
+input[type="file"] {
+  display: block;
+}
+
+.flex-v-center {
+  display: flex;
+  align-items: center
+}

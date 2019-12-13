@@ -19,3 +19,26 @@
   display: flex;
   justify-content: space-between;
 }
+
+.uploaded-img {
+  position: relative;
+  width: 130px;
+  height: 130px;
+}
+
+.uploaded-img img {
+  width: 130px;
+  height: 130px;
+  background-color: #f5f5f5;
+}
+
+.uploaded-img button {
+  position: absolute;
+  border: none;
+  border-radius: 30px;
+  width: 30px;
+  height: 30px;
+  right: 0;
+  top: 0;
+  cursor: pointer;
+}

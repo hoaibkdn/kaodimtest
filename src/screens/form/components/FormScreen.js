@@ -1,12 +1,10 @@
 import React, { Component } from 'react'
 
 import { connect } from "react-redux"
-import FormHeader from './FormHeader'
 import SideBar from './SideBar'
-import Question from './Question'
-import TextArea from './TextArea'
-import Button from './../../../common/Button'
 import FormOptions from './FormOptions'
+import FormTexts from './FormTexts'
+import FormUploadFile from './FormUploadFile'
 
 import { updateAnswer } from './../../../store/actions/form'
 
@@ -16,10 +14,6 @@ import './../styles/FormScreen.css'
 
 class FormScreen extends Component {
   state = {
-    crrIndexQuestion: 0,
-    answer: {
-      [QUESTION_TYPES.TEXT_QUESTION]: {}
-    },
     crrTab: QUESTION_TYPES.TEXT_QUESTION
   }
   totalQuestions = this.props.formQuestions.questionIds.length
@@ -59,10 +53,23 @@ class FormScreen extends Component {
     this.props.updateAnswer(questionIds[crrIndexQuestion], answer, QUESTION_TYPES.TEXT_QUESTION)
   }
 
+  renderFormByType = (type = '') => {
+    switch (type) {
+      case QUESTION_TYPES.TEXT_QUESTION:
+        return <FormTexts />
+      case QUESTION_TYPES.CHECKBOX_QUESTION:
+        return <FormOptions type="checkbox" />
+      case QUESTION_TYPES.RADIO_QUESTION:
+        return <FormOptions type="radio" />
+      case QUESTION_TYPES.FILE_UPLOAD_QUESTION:
+        return <FormUploadFile />
+      default:
+        return <FormTexts />
+    }
+  }
+
   render() {
-    const { questionIds, questionsContent } = this.props.formQuestions
-    const { crrIndexQuestion, answer, crrTab } = this.state
-    console.log('this.props', this.props)
+    const { crrTab } = this.state
     return (
       <div className="container m-auto">
         <div className="form-screen">
@@ -71,38 +78,7 @@ class FormScreen extends Component {
             crrTab={crrTab}
           />
           <div className="form-content">
-            <FormHeader />
-            {
-              crrTab === QUESTION_TYPES.TEXT_QUESTION ?
-                questionIds.map((id, index) => {
-                  return crrIndexQuestion === index ?
-                    (
-                      <Question
-                        question={questionsContent[QUESTION_TYPES.TEXT_QUESTION][id].prompt}
-                        crrIndexQuestion={crrIndexQuestion}
-                        totalQuestions={this.totalQuestions}
-                      >
-                        <TextArea
-                          value={answer[QUESTION_TYPES.TEXT_QUESTION][crrIndexQuestion]}
-                          onChange={this.setText}
-                        />
-                      </Question>
-                    ) : null
-                }) :
-                <FormOptions />
-            }
-            <div className="group-btn">
-              <Button
-                title="Prev"
-                isDisabled={crrIndexQuestion === 0}
-                onClick={() => this.changeQuestion(STEP_BUTTON.PREV)}
-              />
-              <Button
-                title="Next"
-                isDisabled={crrIndexQuestion === this.totalQuestions - 1}
-                onClick={() => this.changeQuestion()}
-              />
-            </div>
+            {this.renderFormByType(crrTab)}
           </div>
         </div>
       </div>

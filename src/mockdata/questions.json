@@ -29,20 +29,20 @@
       "is_required": true,
       "options": [
         {
-          "id": 1,
+          "id": "option1",
           "value": "Option 1"
         },
         {
-          "id": 2,
+          "id": "option2",
           "value": "Option 2"
         },
         {
-          "id": 3,
+          "id": "option3",
           "value": "Option 3"
         },
         {
-          "id": 4,
-          "value": "Other"
+          "id": "checkbox_other",
+          "value": ""
         }
       ]
     },
@@ -53,20 +53,20 @@
       "is_required": true,
       "options": [
         {
-          "id": 1,
+          "id": "option4",
           "value": "Option 1"
         },
         {
-          "id": 2,
+          "id": "option5",
           "value": "Option 2"
         },
         {
-          "id": 3,
+          "id": "option6",
           "value": "Option 3"
         },
         {
-          "id": 4,
-          "value": "Other"
+          "id": "radio_other",
+          "value": ""
         }
       ]
     },

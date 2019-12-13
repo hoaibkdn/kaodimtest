@@ -1,3 +1,8 @@
+.custom-checkbox {
+  padding: 10px 0;
+  display: flex;
+}
+
 .custom-checkbox input[type="checkbox"],
 .custom-checkbox input[type="radio"] {
   display: none;
@@ -68,5 +73,9 @@ input[type="checkbox"] {
   border-bottom: 1px solid #e6e7e8;
   outline: none;
   width: 100%;
+  font-size: 18px;
+}
+
+.t-white {
   color: white;
 }

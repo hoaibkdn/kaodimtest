@@ -21,8 +21,16 @@ code {
   font-weight: 400;
 }
 
+.m-t-50 {
+  margin-top: 50px;
+}
+
 .text-light-grey {
   color: #6a6a6a;
+}
+
+.d-none {
+  display: none;
 }
 
 .cursor-pointer {
@@ -33,8 +41,15 @@ code {
   display: flex;
 }
 
+.f-cover {
+  object-fit: cover;
+}
 .flex-space-between {
   justify-content: space-between;
+}
+
+.m-t-10 {
+  margin-top: 10px
 }
 
 @media (min-width: 768px) {

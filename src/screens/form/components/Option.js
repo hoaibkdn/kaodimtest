@@ -3,21 +3,37 @@ import PropTypes from 'prop-types'
 import './../styles/Option.css'
 
 const Option = memo(props => {
-  const { type, value, isBox, isChecked } = props
+  const { type, value, isBox, isChecked, onChange, optionId, text = "" } = props
+  console.log('isChecked ', isChecked)
   return (
     <label className={`cursor-pointer`}>
       <div className="custom-checkbox">
-        {!isBox && <input type={type} id={value} />}
-        <label htmlFor={value}>
+        {!isBox &&
+          <input
+            type={type}
+            id={optionId}
+            checked={!!isChecked}
+          />}
+
+        {<label className={!value ? 'm-t-10' : ''} htmlFor={optionId} onClick={() => onChange(optionId, optionId.includes('other') ? null : value)}>
           {
-            <div className={`option-label b-400 ${isBox ? 'box-border cursor-pointer' : ''} ${isChecked && isBox ? 'box-border-active' : ''}`}>
-              {value === 'Other' ?
-                <input type="text" className="option-input" disabled={!isChecked} /> :
-                value
-              }
+            (value || !isBox) &&
+            <div className={`b-400 ${isBox ? 'box-border cursor-pointer' : 'option-label'} ${isChecked && isBox ? 'box-border-active' : ''}`}>
+              {value}
             </div>
           }
-        </label>
+        </label>}
+        {!value &&
+          <div className={`b-400 ${isBox ? 'box-border cursor-pointer' : ''} ${isChecked && isBox ? 'box-border-active' : ''}`}>
+            <input
+              type="text"
+              className={`option-input ${isChecked && isBox ? 't-white' : ''}`}
+              onChange={(e) => onChange(optionId, e.target.value)}
+              onFocus={() => onChange(optionId)}
+              value={text}
+            />
+          </div>
+        }
       </div>
     </label>
   )
