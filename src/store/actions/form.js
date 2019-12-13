@@ -1,12 +1,7 @@
-export const GET_QUESTIONS = 'GET_QUESTIONS'
-export const GET_QUESTIONS_SUCCESSED = 'GET_QUESTIONS_SUCCESSED'
-export const GET_QUESTIONS_FAILED = 'GET_QUESTIONS_FAILED'
-export const getQuestions = () => ({
-  type: GET_QUESTIONS
-})
-export const getQuestionsSuccessed = () => ({
-  type: GET_QUESTIONS_SUCCESSED
-})
-export const getQuestionsFailed = () => ({
-  type: GET_QUESTIONS_FAILED
+export const UPDATE_ANSWER = 'UPDATE_ANSWER'
+export const updateAnswer = (id = -1, value = {}, questionType = "") => ({
+  type: UPDATE_ANSWER,
+  id,
+  value,
+  questionType
 })
