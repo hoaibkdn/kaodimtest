@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import UploadFile from './UploadFile'
 import Button from './../../../common/Button'
 import FormResult from './FormResult'
+import Question from './Question'
 
 import { updateAnswer } from './../../../store/actions/form'
 import { QUESTION_TYPES } from './../../../constants/questionTypes'
@@ -66,12 +67,16 @@ class FormUploadFile extends Component {
 
   render() {
     const { stepOption, imagePreviewUrl, file } = this.state
+    const { questionsContent } = this.props.formQuestions
     return (
       <>
         {
           stepOption === 1 ?
             <FormResult questionType={QUESTION_TYPES.FILE_UPLOAD_QUESTION} /> :
-            <>
+            <Question
+              question={questionsContent[QUESTION_TYPES.FILE_UPLOAD_QUESTION].prompt}
+              crrIndexQuestion={-1}
+            >
               {
                 imagePreviewUrl &&
                 <div className="uploaded-img">
@@ -84,7 +89,7 @@ class FormUploadFile extends Component {
                 ref={ref => this.refFile = ref}
                 title={file ? 'Reupload' : 'Upload file'}
               />
-            </>
+            </Question>
         }
 
         <div className="group-btn m-t-50">
