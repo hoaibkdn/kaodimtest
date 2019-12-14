@@ -8,48 +8,56 @@ import FormResult from './FormResult'
 import { updateAnswer } from './../../../store/actions/form'
 import { QUESTION_TYPES } from './../../../constants/questionTypes'
 import { STEP_BUTTON } from './../../../constants/buttonSteps'
-
+import { validateOptions } from './../../../helpers/validation'
 
 class FormOptions extends Component {
   state = {
     stepOption: 0,
-    answer: {}
+    answer: {},
+    errMsg: ''
   }
   type = this.props.typeOption === 'checkbox' ? QUESTION_TYPES.CHECKBOX_QUESTION : QUESTION_TYPES.RADIO_QUESTION
 
+  componentDidMount() {
+    this.setState({
+      errMsg: validateOptions(this.state.answer)
+    })
+  }
 
   componentDidUpdate(preProps) {
     if (preProps.typeOption !== this.props.typeOption) {
+      const answer = {}
       this.setState({
         stepOption: 0,
-        answer: {}
+        answer,
+        errMsg: validateOptions(answer)
       })
     }
   }
 
-  onChange = (optionId, value) => {
+  onChange = (optionId, value, isFocus = false) => {
     const { typeOption } = this.props
     let { answer } = this.state
-    if (answer[optionId] && typeOption === 'checkbox' && answer[optionId].checked && !value) {
-      delete answer[optionId]
+    if (answer[optionId] && typeOption === 'checkbox' && answer[optionId].checked && !isFocus) {
+      answer[optionId].checked = false
     } else {
-      typeOption === 'radio' ?
-        answer = {
-          [optionId]: {
-            checked: true,
-            value
-          }
-        } :
-        answer = {
-          ...answer,
-          [optionId]: {
-            checked: true,
-            value
-          }
+      if (typeOption === 'radio') {
+        for (let key in answer) {
+          answer[key].checked = false
         }
+      }
+      answer = {
+        ...answer,
+        [optionId]: {
+          checked: true,
+          value
+        }
+      }
     }
+    const errMsg = validateOptions(answer)
     this.setState({
-      answer
+      answer,
+      errMsg
     })
   }
 
@@ -70,7 +78,7 @@ class FormOptions extends Component {
   }
 
   render() {
-    const { stepOption, answer } = this.state
+    const { stepOption, answer, errMsg } = this.state
     const { formQuestions: { questionsContent }, typeOption } = this.props
     return (
       <>
@@ -103,12 +111,12 @@ class FormOptions extends Component {
         <div className="group-btn m-t-50">
           <Button
             title="Prev"
-            isDisabled={stepOption === 0}
+            isDisabled={!!errMsg || stepOption === 0}
             onClick={() => this.changeQuestion(STEP_BUTTON.PREV)}
           />
           <Button
             title="Next"
-            isDisabled={stepOption === 2}
+            isDisabled={!!errMsg || stepOption === 2}
             onClick={() => this.changeQuestion()}
           />
         </div>
