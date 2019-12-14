@@ -1,10 +1,11 @@
 import React, { memo } from 'react'
+import PropTypes from 'prop-types'
 import { connect } from "react-redux"
 import { QUESTION_TYPES } from './../../../constants/questionTypes'
 
-const Answer = ({ question = "", answer, type = "" }) => (
+const Answer = ({ question = "", answer = "", type = "" }) => (
   <div>
-    <p className="b-600">{question}</p>
+    <p className="b-600 wrap-text">{question}</p>
     {type === 'image' ?
       <img
         src={answer}
@@ -13,7 +14,7 @@ const Answer = ({ question = "", answer, type = "" }) => (
         height={200}
         className="f-cover"
       /> :
-      <p>{answer}</p>
+      <p className="wrap-text" >{answer}</p>
     }
   </div>
 )
@@ -70,6 +71,28 @@ const FormResult = memo(props => {
     </div>
   )
 })
+
+Answer.propTypes = {
+  question: PropTypes.string,
+  answer: PropTypes.string,
+  type: PropTypes.string
+}
+
+Answer.defaultProps = {
+  question: '',
+  answer: '',
+  type: ''
+}
+
+
+FormResult.propTypes = {
+  typeOption: PropTypes.string,
+  formQuestions: PropTypes.object
+}
+FormResult.defaultProps = {
+  typeOption: '',
+  formQuestions: ''
+}
 
 const mapStateToProps = (state, ownProps) => ({
   formQuestions: state.form,

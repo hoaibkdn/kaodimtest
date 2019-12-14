@@ -1,4 +1,5 @@
 import React, { memo } from 'react'
+import PropTypes from 'prop-types'
 import Box from './../Box'
 import Photo from './Photo'
 
@@ -28,5 +29,12 @@ const GalleryBox = memo(props => {
     </Box>
   )
 })
+
+GalleryBox.propTypes = {
+  listImgs: PropTypes.array
+}
+GalleryBox.defaultProps = {
+  listImgs: []
+}
 
 export default GalleryBox

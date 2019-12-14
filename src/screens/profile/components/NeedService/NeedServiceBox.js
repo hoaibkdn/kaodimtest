@@ -1,4 +1,5 @@
 import React, { memo } from 'react'
+import PropTypes from 'prop-types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheck } from '@fortawesome/free-solid-svg-icons'
 import Box from './../Box'
@@ -37,4 +38,10 @@ const NeedServiceBox = memo(props => {
   )
 })
 
+Button.propTypes = {
+  benefits: PropTypes.array
+}
+Button.defaultProps = {
+  benefits: []
+}
 export default NeedServiceBox

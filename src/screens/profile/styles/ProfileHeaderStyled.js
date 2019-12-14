@@ -20,7 +20,11 @@ const CoverImg = styled.div`
 
 const ProfileInfo = styled.div`
   padding: 24px;
-  color: ${Colors.textGray}
+  color: ${Colors.textGray};
+
+  @media only screen and (max-width: 768px) {
+    text-align: center
+  }
 `
 
 const Avatar = styled.img`
@@ -30,10 +34,23 @@ const Avatar = styled.img`
   margin-top: -104px;
   border: 3px solid white;
 `
+const GroupExtraInfo = styled.div`
+  @media only screen and (max-width: 768px) {
+    margin-top: 20px
+  }
+`
 
 const GroupInfo = styled.div`
   display: flex;
   justify-content: space-between;
+
+  @media only screen and (max-width: 768px) {
+    display: block;
+  }
+
+  @media only screen and (max-width: 445px) {
+    font-size: 13px;
+  }
 `
 
 const FullName = styled.h2`
@@ -63,5 +80,6 @@ export {
   GroupInfo,
   FullName,
   Designation,
-  Dot
+  Dot,
+  GroupExtraInfo
 }

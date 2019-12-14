@@ -1,18 +1,27 @@
 import React, { Component } from 'react'
-
+import PropTypes from 'prop-types'
 import { connect } from "react-redux"
 import SideBar from './SideBar'
 import FormOptions from './FormOptions'
 import FormTexts from './FormTexts'
 import FormUploadFile from './FormUploadFile'
+import Header from './../../../common/Header'
 
 import { updateAnswer } from './../../../store/actions/form'
 
 import { QUESTION_TYPES } from './../../../constants/questionTypes'
 import { STEP_BUTTON } from './../../../constants/buttonSteps'
+
+import { Layout } from './../../../themes'
 import './../styles/FormScreen.css'
 
 class FormScreen extends Component {
+  static propTypes = {
+    formQuestions: PropTypes.object
+  }
+  static defaultProps = {
+    formQuestions: ''
+  }
   state = {
     crrTab: QUESTION_TYPES.TEXT_QUESTION
   }
@@ -71,19 +80,24 @@ class FormScreen extends Component {
   render() {
     const { crrTab } = this.state
     return (
-      <div className="container m-auto">
-        <div className="form-screen">
-          <div className="flex-1">
-            <SideBar
-              onChangeTab={this.onChangeTab}
-              crrTab={crrTab}
-            />
-          </div>
-          <div className="form-content flex-3">
-            {this.renderFormByType(crrTab)}
+      <>
+        <Header />
+        <div className="m-t-50">
+          <div className="container m-auto">
+            <Layout.Flex className="form-screen">
+              <div className="flex-1">
+                <SideBar
+                  onChangeTab={this.onChangeTab}
+                  crrTab={crrTab}
+                />
+              </div>
+              <div className="form-content flex-3">
+                {this.renderFormByType(crrTab)}
+              </div>
+            </Layout.Flex>
           </div>
         </div>
-      </div>
+      </>
     )
   }
 }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 import Option from './Option'
 import Button from './../../../common/Button'
 import Question from './Question'
@@ -11,6 +12,14 @@ import { STEP_BUTTON } from './../../../constants/buttonSteps'
 import { validateOptions } from './../../../helpers/validation'
 
 class FormOptions extends Component {
+  static propTypes = {
+    typeOption: PropTypes.string,
+    formQuestions: PropTypes.object
+  }
+  static defaultProps = {
+    typeOption: '',
+    formQuestions: ''
+  }
   state = {
     stepOption: 0,
     answer: {},

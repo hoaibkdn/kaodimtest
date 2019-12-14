@@ -1,4 +1,5 @@
 import React, { memo } from 'react'
+import PropTypes from 'prop-types'
 import RelatedServiceItem from './RelatedServiceItem'
 
 const RelatedServiceBox = memo(props => {
@@ -17,5 +18,13 @@ const RelatedServiceBox = memo(props => {
     </>
   )
 })
+
+RelatedServiceBox.propTypes = {
+  services: PropTypes.array
+}
+
+RelatedServiceBox.defaultProps = {
+  services: []
+}
 
 export default RelatedServiceBox

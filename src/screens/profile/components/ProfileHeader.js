@@ -11,7 +11,8 @@ import {
   GroupInfo,
   FullName,
   Designation,
-  Dot
+  Dot,
+  GroupExtraInfo
 } from "./../styles/ProfileHeaderStyled"
 
 const ProfileHeader = memo(props => {
@@ -26,7 +27,7 @@ const ProfileHeader = memo(props => {
               <FullName>Multi Indah Teknik</FullName>
               <Designation>Serving since March 2017<Dot />Verified</Designation>
             </div>
-            <div>
+            <GroupExtraInfo>
               <VerticalText
                 title='23423'
                 text="job completed"
@@ -44,7 +45,7 @@ const ProfileHeader = memo(props => {
                 text="job completed"
                 textRight
               />
-            </div>
+            </GroupExtraInfo>
           </GroupInfo>
         </ProfileInfo>
       </HeaderWrapper>

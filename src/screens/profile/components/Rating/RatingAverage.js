@@ -1,4 +1,5 @@
 import React, { memo } from 'react'
+import PropTypes from 'prop-types'
 import {
   Wrapper,
   Number,
@@ -49,5 +50,16 @@ const RatingAverage = memo(props => {
     </Wrapper>
   )
 })
+
+RatingAverage.propTypes = {
+  totalRatings: PropTypes.number, 
+  number: PropTypes.number, 
+}
+
+RatingAverage.defaultProps = {
+  totalRatings: 0, 
+  number: 0, 
+}
+
 
 export default RatingAverage

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import UploadFile from './UploadFile'
 import Button from './../../../common/Button'
@@ -10,10 +11,20 @@ import { STEP_BUTTON } from './../../../constants/buttonSteps'
 
 
 class FormUploadFile extends Component {
+  static propTypes = {
+    typeOption: PropTypes.string,
+    formQuestions: PropTypes.object
+  }
+  static defaultProps = {
+    typeOption: '',
+    formQuestions: ''
+  }
+
   state = {
     stepOption: 0,
     file: ""
   }
+
   refFile = React.createRef()
 
   onChange = (e) => {

@@ -1,4 +1,5 @@
 import React, { memo } from 'react'
+import PropTypes from 'prop-types'
 import { QUESTION_TYPES } from './../../../constants/questionTypes'
 import "./../styles/SideBar.css"
 
@@ -37,5 +38,15 @@ const SideBar = memo((props) => {
     </div>
   )
 })
+
+SideBar.propTypes = {
+  crrTab: PropTypes.string,
+  onChangeTab: PropTypes.func,
+}
+
+SideBar.defaultProps = {
+  crrTab: '',
+  onChangeTab: () => {},
+}
 
 export default SideBar

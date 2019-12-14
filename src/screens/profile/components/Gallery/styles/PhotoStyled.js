@@ -2,17 +2,45 @@ import styled from 'styled-components';
 import { Colors } from './../../../../../themes'
 
 const PHOTO_SIZE = 120
+const PHOTO_MEDIUM_SIZE = 100
+const PHOTO_SMALL_SIZE = 60
 const PhotoWrapper = styled.div`
-  width: ${PHOTO_SIZE}px;
-  height: ${PHOTO_SIZE}px;
   position: relative;
-  margin-right: ${props => props.isLastImg ? '0' : '5px'}
+  margin-right: ${props => props.isLastImg ? '0' : '5px'};
+
+  @media only screen and (min-width: 320px) {
+    width: ${PHOTO_SMALL_SIZE}px;
+    height: ${PHOTO_SMALL_SIZE}px;
+  }
+
+  @media only screen and (min-width: 400px) {
+    width: ${PHOTO_MEDIUM_SIZE}px;
+    height: ${PHOTO_MEDIUM_SIZE}px;
+  }
+
+  @media only screen and (min-width: 768px) {
+    width: ${PHOTO_SIZE}px;
+    height: ${PHOTO_SIZE}px;
+  }
 `
 
 const Image = styled.img`
-  width: ${PHOTO_SIZE}px;
-  height: ${PHOTO_SIZE}px;
-  object-fit: cover
+  object-fit: cover;
+
+  @media only screen and (min-width: 320px) {
+    width: ${PHOTO_SMALL_SIZE}px;
+    height: ${PHOTO_SMALL_SIZE}px;
+  }
+
+  @media only screen and (min-width: 400px) {
+    width: ${PHOTO_MEDIUM_SIZE}px;
+    height: ${PHOTO_MEDIUM_SIZE}px;
+  }
+
+  @media only screen and (min-width: 768px) {
+    width: ${PHOTO_SIZE}px;
+    height: ${PHOTO_SIZE}px;
+  }
 `
 
 const OverlapWrapper = styled.button`
@@ -22,9 +50,21 @@ const OverlapWrapper = styled.button`
   border: none;
   left: 0;
   top: 0;
-  width: ${PHOTO_SIZE}px;
-  height: ${PHOTO_SIZE}px;
-  cursor: pointer
+  cursor: pointer;
+
+  @media only screen and (min-width: 320px) {
+    width: ${PHOTO_SMALL_SIZE}px;
+    height: ${PHOTO_SMALL_SIZE}px;
+  }
+
+  @media only screen and (min-width: 400px) {
+    width: ${PHOTO_MEDIUM_SIZE}px;
+    height: ${PHOTO_MEDIUM_SIZE}px;
+  }
+  @media only screen and (min-width: 768px) {
+    width: ${PHOTO_SIZE}px;
+    height: ${PHOTO_SIZE}px;
+  }
 `
 
 const NumberMore = styled.p`
