@@ -5,7 +5,7 @@
 
 
 ## Demo
-- The project was deployed on firebase and integrate CI/CD from github
+- The project was deployed on firebase and integrate **CI/CD** from github
 ![CI CD pipeline](/src/assets/images/cicdPipeline.png)
 - Demo [link](https://kaodimtest-9eb0b.firebaseapp.com/)
 ![Aissigment](/src/assets/images/formPage.png)
