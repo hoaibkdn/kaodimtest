@@ -1,4 +1,5 @@
 import React, { forwardRef } from 'react'
+import PropTypes from 'prop-types'
 import "./../styles/UploadFile.css"
 
 const UploadFile = forwardRef((props, ref) => {
@@ -20,5 +21,15 @@ const UploadFile = forwardRef((props, ref) => {
     </label>
   )
 })
+
+UploadFile.propTypes = {
+  title: PropTypes.string,
+  onChange: PropTypes.func,
+}
+
+UploadFile.defaultProps = {
+  title: '',
+  onChange: () => { },
+}
 
 export default UploadFile

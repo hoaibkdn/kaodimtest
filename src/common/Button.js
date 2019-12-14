@@ -1,18 +1,18 @@
 import React, { memo } from 'react'
 import PropTypes from 'prop-types'
-import './styles/Button.css'
+import { BtnWrapper, BtnLink } from './styles/ButtonStyled'
 
 const Button = memo((props) => {
   const { title, isDisabled, onClick, type, className } = props
   return (
-    <button
+    <BtnWrapper
       onClick={onClick}
       disabled={isDisabled}
       type={type}
       className={`btn ${className}`}
     >
       {title}
-    </button>
+    </BtnWrapper>
   )
 })
 
@@ -30,4 +30,22 @@ Button.defaultProps = {
   type: ''
 }
 
+const ButtonLink = memo((props) => {
+  const { to, title } = props
+  return (
+    <BtnLink to={to}>{title}</BtnLink>
+  )
+})
+
+ButtonLink.propTypes = {
+  title: PropTypes.string,
+  to: PropTypes.string,
+}
+
+ButtonLink.defaultProps = {
+  title: '',
+  to: '/',
+}
+
 export default Button
+export { ButtonLink }

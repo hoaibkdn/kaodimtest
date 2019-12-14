@@ -1,4 +1,5 @@
 import React, { memo } from 'react'
+import PropTypes from 'prop-types'
 import PercentBar from './PercentBar'
 import RatingAverage from './RatingAverage'
 
@@ -23,5 +24,17 @@ const RatingGroup = memo(props => {
     </>
   )
 })
+
+RatingGroup.propTypes = {
+  percentageList: PropTypes.object, 
+  ratingAverageValue: PropTypes.number,
+  totalRatings: PropTypes.number
+}
+
+RatingGroup.defaultProps = {
+  percentageList: {},
+  totalRatings: 0, 
+  ratingAverageValue: 0
+}
 
 export default RatingGroup

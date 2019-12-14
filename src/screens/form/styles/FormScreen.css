@@ -3,7 +3,6 @@
   padding: 15px 18px;
   border: 1px solid #e1e1e1;
   margin: auto;
-  display: flex;
 }
 
 .m-auto {
@@ -12,7 +11,6 @@
 
 .form-content {
   padding-left: 50px;
-  /* width: 100%; */
 }
 
 .group-btn {

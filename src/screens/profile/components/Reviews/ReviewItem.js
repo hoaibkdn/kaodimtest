@@ -1,4 +1,5 @@
 import React, { memo } from 'react'
+import PropTypes from 'prop-types'
 import {
   Wrapper,
   Image,
@@ -44,5 +45,23 @@ const ReviewItem = memo(props => {
     </Wrapper>
   )
 })
+
+ReviewItem.propTypes = {
+  totalRating: PropTypes.number,
+  time: PropTypes.string, 
+  text: PropTypes.string, 
+  photo: PropTypes.string, 
+  isLastItem: PropTypes.bool,
+  name: PropTypes.string
+}
+
+ReviewItem.defaultProps = {
+  totalRating: 0,
+  time: '', 
+  text: '', 
+  photo: '', 
+  isLastItem: false,
+  name: ''
+}
 
 export default ReviewItem

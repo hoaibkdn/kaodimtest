@@ -1,4 +1,5 @@
 import React, { memo } from 'react'
+import PropTypes from 'prop-types'
 import { Images } from './../../../../themes'
 import {
   PhotoWrapper,
@@ -22,5 +23,17 @@ const Photo = memo(props => {
     </PhotoWrapper>
   )
 })
+
+Photo.propTypes = {
+  imgUrl: PropTypes.string, 
+  numOfViewsMore: PropTypes.number, 
+  isLastImg: PropTypes.bool
+}
+
+Photo.defaultProps = {
+  imgUrl: '',
+  numOfViewsMore: 0,
+  isLastImg: false
+}
 
 export default Photo

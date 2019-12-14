@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import PropTypes from 'prop-types'
 import { connect } from "react-redux"
 import FormHeader from './FormHeader'
 import Question from './Question'
@@ -15,6 +15,13 @@ import { STEP_BUTTON } from './../../../constants/buttonSteps'
 import { validate, convertCondition } from './../../../helpers/validation'
 
 class FormTexts extends Component {
+  static propTypes = {
+    formQuestions: PropTypes.object
+  }
+  static defaultProps = {
+    formQuestions: ''
+  }
+
   state = {
     crrIndexQuestion: 0,
     answer: {},
@@ -87,6 +94,7 @@ class FormTexts extends Component {
                     question={questionsContent[QUESTION_TYPES.TEXT_QUESTION][id].prompt}
                     crrIndexQuestion={crrIndexQuestion}
                     totalQuestions={this.totalQuestions}
+                    notice={errMsg}
                   >
                     <TextArea
                       value={answer[id]}

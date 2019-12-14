@@ -73,6 +73,14 @@ code {
   flex: 1
 }
 
+.f-12 {
+  font-size: 12px;
+}
+
+.wrap-text {
+  overflow-wrap: break-word;
+}
+
 @media (min-width: 768px) {
   .container {
     width: 750px;

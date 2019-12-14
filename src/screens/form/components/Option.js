@@ -44,10 +44,22 @@ const Option = memo(props => {
 
 Option.propTypes = {
   type: PropTypes.string,
+  value: PropTypes.string,
+  isBox: PropTypes.bool, 
+  isChecked: PropTypes.bool, 
+  onChange: PropTypes.func, 
+  optionId: PropTypes.string, 
+  text: PropTypes.string
 }
 
 Option.defaultProps = {
   type: 'checkbox',
+  value: '',
+  isBox: false, 
+  isChecked: false, 
+  onChange: () => {}, 
+  optionId: '', 
+  text: ''
 }
 
 

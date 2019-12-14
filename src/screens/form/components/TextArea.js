@@ -1,8 +1,9 @@
 import React, { memo } from 'react'
+import PropTypes from 'prop-types'
 import './../styles/TextArea.css'
 
 const TextArea = memo(props => {
-  const { notice, value, onChange } = props
+  const { value, onChange } = props
   return (
     <>
       <textarea
@@ -11,9 +12,18 @@ const TextArea = memo(props => {
         onChange={(e) => onChange(e.target.value)}
         value={value}
       />
-      <p className="notice">{notice}</p>
     </>
   )
 })
+
+TextArea.propTypes = {
+  value: PropTypes.string,
+  onChange: PropTypes.func,
+}
+
+TextArea.defaultProps = {
+  value: '',
+  onChange: () => { },
+}
 
 export default TextArea

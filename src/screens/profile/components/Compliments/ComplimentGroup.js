@@ -1,5 +1,7 @@
 import React, { memo } from 'react'
+import PropTypes from 'prop-types'
 import ComplimentItem from './ComplimentItem'
+import { Layout } from './../../../../themes'
 
 const ComplimentGroup = memo(props => {
   const { complimentList } = props
@@ -9,10 +11,10 @@ const ComplimentGroup = memo(props => {
     let compliments = []
     while (i < numOfCompliments) {
       compliments.push(
-        <div className="flex" key={`compliment${i}`}>
+        <Layout.Flex key={`compliment${i}`}>
           <ComplimentItem {...complimentList[i]} />
           <ComplimentItem {...complimentList[i + 1]} />
-        </div>
+        </Layout.Flex>
       )
       i += 2
     }
@@ -25,5 +27,13 @@ const ComplimentGroup = memo(props => {
     </>
   )
 })
+
+ComplimentGroup.propTypes = {
+  complimentList: PropTypes.array
+}
+
+ComplimentGroup.defaultProps = {
+  complimentList: []
+}
 
 export default ComplimentGroup
