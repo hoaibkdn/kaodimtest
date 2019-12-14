@@ -13,7 +13,7 @@ import { isInt } from './../../../../helpers/number'
 import { Colors } from './../../../../themes'
 
 const RatingAverage = memo(props => {
-  const { number, totalRating } = props
+  const { number, totalRatings } = props
   const renderStars = () => {
     const stars = []
     for (let i = 1; i <= 5; i++) {
@@ -45,7 +45,7 @@ const RatingAverage = memo(props => {
       <StarGroup>
         {renderStars()}
       </StarGroup>
-      <Text>{totalRating} ratings</Text>
+      <Text>{totalRatings} ratings</Text>
     </Wrapper>
   )
 })
