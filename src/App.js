@@ -3,7 +3,7 @@ import { PersistGate } from "redux-persist/integration/react";
 import { store, persistor, history } from "./store";
 import { Provider } from "react-redux";
 import { Router, Route } from "react-router";
-import { Home, Form } from "./screens";
+import { Home, Form, Profile } from "./screens";
 
 class App extends Component {
   render() {
@@ -13,6 +13,7 @@ class App extends Component {
           <Router history={history}>
             <Route exact path="/" component={Home} />
             <Route path="/form" component={Form} />
+            <Route path="/profile" component={Profile} />
           </Router>
         </PersistGate>
       </Provider>
