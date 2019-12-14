@@ -73,11 +73,13 @@ class FormScreen extends Component {
     return (
       <div className="container m-auto">
         <div className="form-screen">
-          <SideBar
-            onChangeTab={this.onChangeTab}
-            crrTab={crrTab}
-          />
-          <div className="form-content">
+          <div className="flex-1">
+            <SideBar
+              onChangeTab={this.onChangeTab}
+              crrTab={crrTab}
+            />
+          </div>
+          <div className="form-content flex-3">
             {this.renderFormByType(crrTab)}
           </div>
         </div>

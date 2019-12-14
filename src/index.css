@@ -69,6 +69,10 @@ code {
   flex: 2
 }
 
+.flex-1 {
+  flex: 1
+}
+
 @media (min-width: 768px) {
   .container {
     width: 750px;

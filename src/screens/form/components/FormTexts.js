@@ -12,24 +12,42 @@ import { updateAnswer } from './../../../store/actions/form'
 import { QUESTION_TYPES } from './../../../constants/questionTypes'
 import { STEP_BUTTON } from './../../../constants/buttonSteps'
 
+import { validate, convertCondition } from './../../../helpers/validation'
+
 class FormTexts extends Component {
   state = {
     crrIndexQuestion: 0,
     answer: {},
+    errMsg: ''
   }
   totalQuestions = this.props.formQuestions.questionIds.length
+
+  componentDidMount() {
+    // convert validation conditon for each question
+    this.validConditons = {}
+    const { questionIds, questionsContent } = this.props.formQuestions
+    questionIds.forEach(id => {
+      this.validConditons = {
+        ...this.validConditons,
+        [id]: convertCondition(questionsContent[QUESTION_TYPES.TEXT_QUESTION][id])
+      }
+    })
+    this.setText()
+  }
 
 
   /**
    * Set text for text question
    */
-  setText = (value = '') => {
+  setText = (value = '', crrIndexQuestion = -1) => {
     const { questionIds } = this.props.formQuestions
+    const crrId = crrIndexQuestion >= 0 ? questionIds[crrIndexQuestion] : questionIds[this.state.crrIndexQuestion]
     this.setState(preState => ({
       answer: {
         ...preState.answer,
-        [questionIds[preState.crrIndexQuestion]]: value
-      }
+        [crrId]: value
+      },
+      errMsg: this.validConditons[crrId] ? validate(this.validConditons[crrId], value) : '',
     }))
   }
 
@@ -39,19 +57,20 @@ class FormTexts extends Component {
    * prev => value = -1
    */
   changeQuestion = (value = STEP_BUTTON.NEXT) => {
+    const { questionIds } = this.props.formQuestions
+    const { crrIndexQuestion, answer } = this.state
     this.setState(preState => ({
       crrIndexQuestion: preState.crrIndexQuestion + value
     }))
+    this.setText(answer[questionIds[crrIndexQuestion + value]], crrIndexQuestion + value)
 
     // Update answer value
-    const { crrIndexQuestion, answer } = this.state
-    const { questionIds } = this.props.formQuestions
     this.props.updateAnswer(questionIds[crrIndexQuestion], answer, QUESTION_TYPES.TEXT_QUESTION)
   }
 
   render() {
     const { questionIds, questionsContent } = this.props.formQuestions
-    const { crrIndexQuestion, answer } = this.state
+    const { crrIndexQuestion, answer, errMsg } = this.state
     return (
       <>
         <FormHeader />
@@ -85,7 +104,7 @@ class FormTexts extends Component {
           />
           <Button
             title="Next"
-            isDisabled={crrIndexQuestion === this.totalQuestions}
+            isDisabled={!!errMsg || crrIndexQuestion === this.totalQuestions}
             onClick={() => this.changeQuestion()}
           />
         </div>

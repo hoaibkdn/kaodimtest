@@ -84,7 +84,7 @@ class FormUploadFile extends Component {
           />
           <Button
             title="Next"
-            isDisabled={stepOption === 2}
+            isDisabled={!file || stepOption === 1}
             onClick={() => this.changeQuestion()}
           />
         </div>
