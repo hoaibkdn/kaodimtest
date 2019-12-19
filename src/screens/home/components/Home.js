@@ -20,6 +20,9 @@ const Home = memo(() => (
           </div>
         </Box>
       </Layout.Center>
+      <div id="embed-api-auth-container"></div>
+      <div id="chart-container"></div>
+      <div id="view-selector-container"></div>
     </Layout.SmallBox>
   </>
 ))
