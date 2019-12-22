@@ -27,7 +27,7 @@ const formReducer = (state = INITIAL_STATE, action) => {
           }
           break;
         default:
-          const optionsAnswer = questionsContent[questionType].options.map(item => value[item.id] ? ({ ...item, answer: value[item.id].value }) : item)
+          const optionsAnswer = questionsContent[questionType].options.map(item => value[item.id] && value[item.id].checked ? ({ ...item, answer: value[item.id].value }) : ({ ...item, answer: null }))
           questionsContent[questionType] = {
             ...questionsContent[questionType],
             options: optionsAnswer
