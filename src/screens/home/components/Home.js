@@ -14,7 +14,7 @@ const Home = memo(() => (
           padding={40}
           noBorder
         >
-          <ButtonLink to="/form" title="Form" />
+          <ButtonLink to="/form" title="Form 123" />
           <div className="m-t-10">
             <ButtonLink to="/profile" title="Profile" />
           </div>
